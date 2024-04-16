@@ -7,11 +7,13 @@ if __name__ == '__main__':
     x0 = 0.2
     a = 32345
     m = 121
-    n = 60
+    n = 100
 
     random_numbers = lehmer.generate_random_numbers(x0, a, m, n)
     print("Wygenerowane liczby losowe:", random_numbers)
-    avg = sum(random_numbers) / n / 100
+    maximum = max(random_numbers)
+    random_numbers[:] = [x / maximum for x in random_numbers]
+    avg = sum(random_numbers) / n
     print("Średnia:", avg)
 
     max_size = len(random_numbers)
@@ -24,11 +26,13 @@ if __name__ == '__main__':
     plt.show()
 
     seed = 1211
-    n = 30
+    n = 100
 
     random_numbers = von_neumann.von_neumann(seed, n)
     print("Wygenerowane liczby losowe:", random_numbers)
-    avg = sum(random_numbers)/ n / 10000
+    maximum = max(random_numbers)
+    random_numbers[:] = [x / maximum for x in random_numbers]
+    avg = sum(random_numbers)/ n
     print("Średnia:", avg)
 
     max_size = len(random_numbers)
@@ -41,7 +45,3 @@ if __name__ == '__main__':
     plt.show()
 
     n = 1000000
-
-    # Aproksymacja wartości π
-    approx_pi = von_neumann.von_neumann_pi_approximation(n)
-    print("Aproksymacja wartości π:", approx_pi)

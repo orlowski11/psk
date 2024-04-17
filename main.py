@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import von_neumann
 import lehmer
+import percentage
 
 if __name__ == '__main__':
 
@@ -15,6 +16,7 @@ if __name__ == '__main__':
     random_numbers[:] = [x / maximum for x in random_numbers]
     avg = sum(random_numbers) / n
     print("Średnia:", avg)
+    print("Odchylenie:",percentage.offset(avg), "%")
 
     max_size = len(random_numbers)
     last_index = max_size - 1
@@ -34,6 +36,7 @@ if __name__ == '__main__':
     random_numbers[:] = [x / maximum for x in random_numbers]
     avg = sum(random_numbers)/ n
     print("Średnia:", avg)
+    print("Odchylenie:",percentage.offset(avg),"%")
 
     max_size = len(random_numbers)
     last_index = max_size - 1

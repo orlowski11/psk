@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import von_neumann
 import lehmer
 import percentage
+import pi_approximation
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     x0 = 0.2
     a = 32345
@@ -16,15 +17,27 @@ if __name__ == '__main__':
     random_numbers[:] = [x / maximum for x in random_numbers]
     avg = sum(random_numbers) / n
     print("Średnia:", avg)
-    print("Odchylenie:",percentage.offset(avg), "%")
+    print("Odchylenie:", percentage.offset(avg), "%")
+
+    pi = pi_approximation.calculate_pi(n, random_numbers)
+    print("Aproksymacja liczby Pi:", pi)
+    print("Odchylenie:", pi_approximation.offset(pi), "%")
 
     max_size = len(random_numbers)
     last_index = max_size - 1
     x = random_numbers[1:last_index]
-    y = random_numbers[0:last_index - 1]
+    y = random_numbers[0 : last_index - 1]
 
-    plt.plot(x, y, color='green', linestyle='none', linewidth=3,
-             marker='o', markerfacecolor='blue', markersize=12)
+    plt.plot(
+        x,
+        y,
+        color="green",
+        linestyle="none",
+        linewidth=3,
+        marker="o",
+        markerfacecolor="blue",
+        markersize=12,
+    )
     plt.show()
 
     seed = 1211
@@ -34,17 +47,29 @@ if __name__ == '__main__':
     print("Wygenerowane liczby losowe:", random_numbers)
     maximum = max(random_numbers)
     random_numbers[:] = [x / maximum for x in random_numbers]
-    avg = sum(random_numbers)/ n
+    avg = sum(random_numbers) / n
     print("Średnia:", avg)
-    print("Odchylenie:",percentage.offset(avg),"%")
+    print("Odchylenie:", percentage.offset(avg), "%")
+
+    pi = pi_approximation.calculate_pi(n, random_numbers)
+    print("Aproksymacja liczby Pi:", pi)
+    print("Odchylenie:", pi_approximation.offset(pi), "%")
 
     max_size = len(random_numbers)
     last_index = max_size - 1
     x = random_numbers[1:last_index]
-    y = random_numbers[0:last_index-1]
+    y = random_numbers[0 : last_index - 1]
 
-    plt.plot(x, y, color='green', linestyle='none', linewidth=3,
-             marker='o', markerfacecolor='blue', markersize=12)
+    plt.plot(
+        x,
+        y,
+        color="green",
+        linestyle="none",
+        linewidth=3,
+        marker="o",
+        markerfacecolor="blue",
+        markersize=12,
+    )
     plt.show()
 
     n = 1000000
